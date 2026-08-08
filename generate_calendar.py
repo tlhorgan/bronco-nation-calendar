@@ -54,16 +54,22 @@ def get_events():
             "vehicle_type_id": 0,
         }
 
-        response = requests.get(
-            API_URL,
-            params=params,
-            headers=HEADERS,
-            timeout=30,
-        )
+response = requests.get(
+    API_URL,
+    params=params,
+    headers=HEADERS,
+    timeout=30,
+)
 
-        response.raise_for_status()
+# Bronco Nation returns HTTP 422 when we request
+# a page beyond the last available page.
+if response.status_code == 422:
+    print(f"No more event pages after page {page - 1}.")
+    break
 
-        data = response.json()
+response.raise_for_status()
+
+data = response.json()
 
         threads = data.get("threads", [])
 
