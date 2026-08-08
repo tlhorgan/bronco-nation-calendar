@@ -1,226 +1,239 @@
 import re
-import hashlib
 from datetime import datetime, timezone
-from urllib.parse import urljoin
+from zoneinfo import ZoneInfo
 
 import requests
-from bs4 import BeautifulSoup
-from dateutil import parser as date_parser
 from icalendar import Calendar, Event
 
 
-BASE_URL = "https://thebronconation.com"
-EVENTS_URL = "https://thebronconation.com/events/"
+API_URL = "https://api.thebronconation.com/events"
 OUTPUT_FILE = "bronco-nation.ics"
 
 HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-        "AppleWebKit/537.36 Chrome/130 Safari/537.36"
-    )
+    "Accept": "application/json",
+    "User-Agent": "BroncoNationCalendar/1.0",
+    "Origin": "https://thebronconation.com",
+    "Referer": "https://thebronconation.com/events/",
 }
 
 
-def get_page(url):
-    response = requests.get(url, headers=HEADERS, timeout=30)
-    response.raise_for_status()
-    return response.text
+def slugify(text):
+    """Convert an event title into the format used in Bronco Nation URLs."""
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    return text.strip("-")
 
 
-def find_event_urls():
+def get_event_page_url(title, thread_id):
+    slug = slugify(title)
+
+    return (
+        f"https://thebronconation.com/events/"
+        f"{slug}-t.{thread_id}/"
+    )
+
+
+def get_events():
     """
-    Find Bronco Nation event URLs.
+    Retrieve all upcoming, non-cancelled Bronco Nation events.
 
-    Bronco Nation's events page is dynamically generated, so this function
-    searches the returned markup for links matching individual event URLs.
+    Continue requesting pages until the API returns no more events.
     """
-    html = get_page(EVENTS_URL)
 
-    pattern = r'https?://thebronconation\.com/events/[^"\'<> ]+'
-    urls = set(re.findall(pattern, html))
+    events = []
+    page = 1
 
-    soup = BeautifulSoup(html, "html.parser")
+    while True:
+        print(f"Requesting event page {page}...")
 
-    for link in soup.find_all("a", href=True):
-        href = link["href"]
+        params = {
+            "past_events": 0,
+            "page": page,
+            "cancelled_events": 0,
+            "region": "",
+            "vehicle_type_id": 0,
+        }
 
-        if "/events/" not in href:
-            continue
+        response = requests.get(
+            API_URL,
+            params=params,
+            headers=HEADERS,
+            timeout=30,
+        )
 
-        url = urljoin(BASE_URL, href)
+        response.raise_for_status()
 
-        # Don't include the event index itself.
-        if url.rstrip("/") == EVENTS_URL.rstrip("/"):
-            continue
+        data = response.json()
 
-        urls.add(url)
+        threads = data.get("threads", [])
 
-    return sorted(urls)
+        if not threads:
+            break
 
+        print(f"Found {len(threads)} events on page {page}")
 
-def extract_text_after_label(text, label, next_labels):
-    start = text.find(label)
+        for thread in threads:
+            event_data = thread.get("Event")
 
-    if start == -1:
-        return None
+            if event_data:
+                events.append(
+                    {
+                        "thread": thread,
+                        "event": event_data,
+                    }
+                )
 
-    start += len(label)
-    remainder = text[start:].strip()
+        page += 1
 
-    end = len(remainder)
-
-    for next_label in next_labels:
-        pos = remainder.find(next_label)
-
-        if pos != -1:
-            end = min(end, pos)
-
-    return remainder[:end].strip()
+    return events
 
 
-def parse_event(url):
-    html = get_page(url)
-    soup = BeautifulSoup(html, "html.parser")
+def unix_to_datetime(timestamp, timezone_name):
+    """
+    Convert a Unix timestamp into an aware datetime using the event's
+    declared timezone.
+    """
 
-    text = soup.get_text(" ", strip=True)
-
-    # Title
-    title = None
-
-    if soup.find("h1"):
-        title = soup.find("h1").get_text(" ", strip=True)
-
-    if not title and soup.title:
-        title = soup.title.get_text(" ", strip=True)
-        title = title.replace(" - Bronco Nation", "").strip()
-
-    # Location generally appears near the top of the page.
-    location = ""
-
-    address_pattern = re.compile(
-        r'([0-9]+[^|]{3,100},\s*[A-Za-z .]+,\s*[A-Z]{2}\s+[0-9]{5}(?:,\s*USA)?)'
-    )
-
-    address_match = address_pattern.search(text)
-
-    if address_match:
-        location = address_match.group(1).strip()
-
-    # Dates
-    start_match = re.search(
-        r'START DATE\s+(.+?)\s+END DATE',
-        text,
-        re.IGNORECASE
-    )
-
-    end_match = re.search(
-        r'END DATE\s+(.+?)(?:\s+Event Type|\s+About the event|\s+Event details)',
-        text,
-        re.IGNORECASE
-    )
-
-    if not start_match or not end_match:
-        print(f"Skipping; could not parse dates: {url}")
+    if not timestamp:
         return None
 
     try:
-        start = date_parser.parse(start_match.group(1), fuzzy=True)
-        end = date_parser.parse(end_match.group(1), fuzzy=True)
-    except Exception as exc:
-        print(f"Date error for {url}: {exc}")
-        return None
+        tz = ZoneInfo(timezone_name)
+    except Exception:
+        print(
+            f"Unknown timezone '{timezone_name}'. "
+            "Falling back to UTC."
+        )
+        tz = timezone.utc
 
-    # Description
-    description = ""
-
-    about_match = re.search(
-        r'About the event\s+(.+?)(?:\s+Event details|\s+Tickets|\s+Media|\s+Attendees)',
-        text,
-        re.IGNORECASE
-    )
-
-    if about_match:
-        description = about_match.group(1).strip()
-
-    return {
-        "title": title or "Bronco Nation Event",
-        "start": start,
-        "end": end,
-        "location": location,
-        "description": description,
-        "url": url,
-    }
+    return datetime.fromtimestamp(timestamp, tz=tz)
 
 
-def make_uid(url):
-    digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:24]
-    return f"{digest}@bronco-nation-calendar"
-
-
-def create_calendar(events):
+def build_calendar(items):
     cal = Calendar()
 
     cal.add("prodid", "-//Bronco Nation Calendar//EN")
     cal.add("version", "2.0")
     cal.add("calscale", "GREGORIAN")
+    cal.add("method", "PUBLISH")
     cal.add("x-wr-calname", "Bronco Nation Events")
 
-    for item in events:
-        event = Event()
+    for item in items:
+        thread = item["thread"]
+        data = item["event"]
 
-        event.add("uid", make_uid(item["url"]))
-        event.add("summary", item["title"])
-        event.add("dtstart", item["start"])
-        event.add("dtend", item["end"])
-        event.add("dtstamp", datetime.now(timezone.utc))
+        title = data.get("title", "Bronco Nation Event")
 
-        if item["location"]:
-            event.add("location", item["location"])
+        start_timestamp = data.get("start_date")
+        end_timestamp = data.get("end_date")
 
-        description = item["description"]
+        timezone_name = data.get("timezone", "UTC")
+
+        start = unix_to_datetime(
+            start_timestamp,
+            timezone_name,
+        )
+
+        end = unix_to_datetime(
+            end_timestamp,
+            timezone_name,
+        )
+
+        if not start:
+            print(f"Skipping '{title}' because it has no start date.")
+            continue
+
+        # If the API happens to omit an end time, use the start time.
+        if not end:
+            end = start
+
+        thread_id = thread.get("thread_id")
+
+        event_page_url = ""
+
+        if thread_id:
+            event_page_url = get_event_page_url(
+                title,
+                thread_id,
+            )
+
+        meetup = data.get("Meetup") or {}
+
+        location = meetup.get("location_name", "")
+        region = meetup.get("region", "")
+
+        description = data.get("short_description", "") or ""
+
+        register_url = data.get("register_url")
+
+        description_parts = []
 
         if description:
-            description += "\n\n"
+            description_parts.append(description)
 
-        description += f"Bronco Nation event page:\n{item['url']}"
+        if region:
+            description_parts.append(
+                f"Region: {region}"
+            )
 
-        event.add("description", description)
-        event.add("url", item["url"])
+        if event_page_url:
+            description_parts.append(
+                f"Bronco Nation event:\n{event_page_url}"
+            )
+
+        if register_url:
+            description_parts.append(
+                f"Registration:\n{register_url}"
+            )
+
+        full_description = "\n\n".join(description_parts)
+
+        event = Event()
+
+        event_id = data.get("event_id", thread_id)
+
+        event.add(
+            "uid",
+            f"bronco-nation-{event_id}@thebronconation.com",
+        )
+
+        event.add("summary", title)
+        event.add("dtstart", start)
+        event.add("dtend", end)
+        event.add("dtstamp", datetime.now(timezone.utc))
+
+        if location:
+            event.add("location", location)
+
+        if full_description:
+            event.add("description", full_description)
+
+        if event_page_url:
+            event.add("url", event_page_url)
 
         cal.add_component(event)
+
+        print(
+            f"Added: {title} "
+            f"({start.strftime('%Y-%m-%d %H:%M %Z')})"
+        )
 
     return cal
 
 
 def main():
-    print("Finding Bronco Nation events...")
+    print("Downloading Bronco Nation events...")
 
-    event_urls = find_event_urls()
+    items = get_events()
 
-    print(f"Found {len(event_urls)} candidate event pages.")
+    print(f"Total events retrieved: {len(items)}")
 
-    events = []
+    calendar = build_calendar(items)
 
-    for url in event_urls:
-        print(f"Reading {url}")
+    with open(OUTPUT_FILE, "wb") as file:
+        file.write(calendar.to_ical())
 
-        try:
-            event = parse_event(url)
-
-            if event:
-                events.append(event)
-        except Exception as exc:
-            print(f"Error reading {url}: {exc}")
-
-    # Sort chronologically
-    events.sort(key=lambda x: x["start"])
-
-    calendar = create_calendar(events)
-
-    with open(OUTPUT_FILE, "wb") as f:
-        f.write(calendar.to_ical())
-
-    print(f"Wrote {len(events)} events to {OUTPUT_FILE}")
+    print(f"Calendar written to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
