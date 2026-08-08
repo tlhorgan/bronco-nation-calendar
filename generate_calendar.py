@@ -71,7 +71,7 @@ response.raise_for_status()
 
 data = response.json()
 
-        threads = data.get("threads", [])
+    threads = data.get("threads", [])
 
         if not threads:
             break
