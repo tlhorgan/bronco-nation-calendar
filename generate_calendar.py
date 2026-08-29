@@ -43,6 +43,17 @@ def slugify(text):
     return text.strip("-")
 
 
+def sort_datetime(value):
+    """Return a timezone-neutral UTC datetime so all source dates sort safely."""
+    if isinstance(value, date) and not isinstance(value, datetime):
+        return datetime.combine(value, time.min)
+    if not isinstance(value, datetime):
+        return datetime.min
+    if value.tzinfo is not None:
+        return value.astimezone(timezone.utc).replace(tzinfo=None)
+    return value
+
+
 def get_event_page_url(title, thread_id):
     return f"https://thebronconation.com/events/{slugify(title)}-t.{thread_id}/"
 
@@ -63,7 +74,6 @@ def get_events():
         }
         response = requests.get(API_URL, params=params, headers=HEADERS, timeout=30)
 
-        # The API returns 422 when page is beyond the final result page.
         if response.status_code == 422:
             print(f"No more Bronco Nation pages after page {page - 1}.")
             break
@@ -169,15 +179,12 @@ def future_enough(start):
 
 
 def parse_nebn():
-    """Parse the Northeast Bronco Nation annual events page."""
     try:
         soup, final_url = fetch_soup(NEBN_URL)
     except Exception as exc:
         print(f"Northeast Bronco Nation unavailable: {exc}")
         return []
 
-    # Wix pages expose readable text in the rendered HTML response.  Pair each
-    # event heading with the first date/location lines that follow it.
     lines = [clean(x) for x in soup.stripped_strings if clean(x)]
     records = []
     month_names = {
@@ -185,7 +192,6 @@ def parse_nebn():
         "july", "august", "september", "october", "november", "december",
     }
 
-    # Known calendar-event titles are represented as headings on the page.
     for i, line in enumerate(lines):
         if len(line) < 5 or len(line) > 100:
             continue
@@ -201,7 +207,6 @@ def parse_nebn():
         if not start or not future_enough(start):
             continue
 
-        # Skip navigational/call-to-action text that happens to precede a date.
         if any(x in line.lower() for x in ("join ", "sign up", "get muddy", "cruise with", "leaf peeping", "hit the beach", "get festive")):
             continue
 
@@ -236,7 +241,6 @@ def parse_nebn():
 
 
 def parse_bronco_driver_super():
-    """Parse Bronco Driver's official Super Celebrations summary."""
     try:
         soup, final_url = fetch_soup(BRONCO_DRIVER_SUPER_URL)
     except Exception as exc:
@@ -259,8 +263,6 @@ def parse_bronco_driver_super():
         ("Bronco Super Celebration Nevada", "October 15-17 2026", "Carson City, NV"),
     ]
     records = []
-    # Only emit the known entries if the current official page still contains
-    # the corresponding date/location text.
     for title, dates, location in definitions:
         start, end = parse_date_range(dates, 2026)
         if start and future_enough(start) and pattern.search(text):
@@ -279,7 +281,6 @@ def parse_bronco_driver_super():
 
 
 def parse_bronco_driver_other():
-    """Parse Bronco Driver's official table of other Bronco events."""
     try:
         soup, final_url = fetch_soup(BRONCO_DRIVER_OTHER_URL)
     except Exception as exc:
@@ -316,7 +317,6 @@ def parse_bronco_driver_other():
 
 
 def parse_jsonld_events(url, source_name):
-    """Generic Event JSON-LD parser used for vendor/club event pages."""
     try:
         soup, final_url = fetch_soup(url)
     except Exception as exc:
@@ -391,7 +391,6 @@ def parse_wild_horses_roundup():
     if records:
         return records
 
-    # Fallback for the current Wild Horses page if it omits Event JSON-LD.
     try:
         soup, final_url = fetch_soup(WILD_HORSES_ROUNDUP_URL)
         text = clean(soup.get_text(" ", strip=True))
@@ -427,7 +426,6 @@ def same_event(a, b):
     if ta in tb or tb in ta:
         shorter, longer = min(len(ta), len(tb)), max(len(ta), len(tb))
         return shorter >= 10 and shorter / max(longer, 1) >= 0.72
-    # Common cross-source naming differences.
     tokens_a = set(ta.split())
     tokens_b = set(tb.split())
     overlap = tokens_a & tokens_b
@@ -443,10 +441,9 @@ def dedupe(records):
         "Wild Horses 4x4": 4,
     }
     kept = []
-    for record in sorted(records, key=lambda r: (r["start"], priority.get(r["source"], 9))):
+    for record in sorted(records, key=lambda r: (sort_datetime(r["start"]), priority.get(r["source"], 9))):
         match = next((x for x in kept if same_event(x, record)), None)
         if match:
-            # Keep richer location/description and preserve source attribution.
             if len(record.get("location", "")) > len(match.get("location", "")):
                 match["location"] = record["location"]
             if record["source"] not in match.get("description", ""):
@@ -464,7 +461,7 @@ def build_calendar(records):
     cal.add("method", "PUBLISH")
     cal.add("x-wr-calname", "Bronco Nation Events")
 
-    for item in sorted(records, key=lambda r: r["start"]):
+    for item in sorted(records, key=lambda r: sort_datetime(r["start"])):
         event = Event()
         uid_seed = item.get("source_id") or f"{item['title']}|{item['start']}|{item.get('location', '')}"
         uid = hashlib.sha256(uid_seed.encode()).hexdigest()[:30] + "@bronco-events"
