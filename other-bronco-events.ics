@@ -8,7 +8,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco Super Celebration West
 DTSTART:20260909T090000
 DTEND:20260912T170000
-DTSTAMP:20260831T135453Z
+DTSTAMP:20260831T225226Z
 UID:92bbf72d6b9b6624d3abefb066ccf3@bronco-events
 DESCRIPTION:Official Bronco Driver Super Celebration. Source: https://www.
  broncodriver.com/index.php/super-celebrations/ Also listed by: Bronco Driv
@@ -20,7 +20,7 @@ BEGIN:VEVENT
 SUMMARY:OK Classic Round Up
 DTSTART:20260923T090000
 DTEND:20260926T170000
-DTSTAMP:20260831T135453Z
+DTSTAMP:20260831T225226Z
 UID:595fdfd8c483ea1ce0cf165b1b91f5@bronco-events
 DESCRIPTION:Listed on Bronco Driver's 2026 national Bronco event schedule.
  \nSource: https://www.broncodriver.com/index.php/peaceful-haven-events/oth
@@ -32,7 +32,7 @@ BEGIN:VEVENT
 SUMMARY:Sturgis Bronco Rally
 DTSTART:20260923T090000
 DTEND:20260927T170000
-DTSTAMP:20260831T135453Z
+DTSTAMP:20260831T225226Z
 UID:2c15d5e1477bf54fac154cb7b3103b@bronco-events
 DESCRIPTION:Listed on Bronco Driver's 2026 national Bronco event schedule.
   Source: https://www.broncodriver.com/index.php/peaceful-haven-events/othe
@@ -44,7 +44,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco THROWBACK
 DTSTART:20261001T090000
 DTEND:20261003T170000
-DTSTAMP:20260831T135453Z
+DTSTAMP:20260831T225226Z
 UID:28a264b29d9cd95673a8a83ec78dcb@bronco-events
 DESCRIPTION:Listed on Bronco Driver's 2026 national Bronco event schedule.
  \nSource: https://www.broncodriver.com/index.php/peaceful-haven-events/oth
@@ -56,7 +56,7 @@ BEGIN:VEVENT
 SUMMARY:Super Celebration Throwback
 DTSTART;TZID=America/New_York:20261001T100000
 DTEND;TZID=America/New_York:20261003T180000
-DTSTAMP:20260831T135453Z
+DTSTAMP:20260831T225226Z
 UID:9c9511ec06e913adee3f7a4a9da425@bronco-events
 DESCRIPTION:Bronco Driver Magazine's celebration of vintage Broncos!\n\nRe
  gion: South East\n\nBronco Nation event:\nhttps://thebronconation.com/even
@@ -70,7 +70,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco Super Celebration Nevada
 DTSTART:20261015T090000
 DTEND:20261017T170000
-DTSTAMP:20260831T135453Z
+DTSTAMP:20260831T225226Z
 UID:20dbfa3161d6923e9f5839d548352c@bronco-events
 DESCRIPTION:Official Bronco Driver Super Celebration. Source: https://www.
  broncodriver.com/index.php/super-celebrations/ Also listed by: Bronco Driv
