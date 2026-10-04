@@ -8,7 +8,7 @@ BEGIN:VEVENT
 SUMMARY:Super Celebration Throwback
 DTSTART;TZID=America/New_York:20261001T100000
 DTEND;TZID=America/New_York:20261003T180000
-DTSTAMP:20261003T211851Z
+DTSTAMP:20261004T055652Z
 UID:9c9511ec06e913adee3f7a4a9da425@bronco-events
 DESCRIPTION:Bronco Driver Magazine's celebration of vintage Broncos!\n\nRe
  gion: South East\n\nBronco Nation event:\nhttps://thebronconation.com/even
@@ -22,7 +22,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco Super Celebration Nevada
 DTSTART:20261015T090000
 DTEND:20261017T170000
-DTSTAMP:20261003T211851Z
+DTSTAMP:20261004T055652Z
 UID:20dbfa3161d6923e9f5839d548352c@bronco-events
 DESCRIPTION:Official Bronco Driver Super Celebration. Source: https://www.
  broncodriver.com/index.php/super-celebrations/ Also listed by: Bronco Driv
