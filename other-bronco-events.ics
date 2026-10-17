@@ -5,15 +5,16 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Other Bronco Events
 BEGIN:VEVENT
-SUMMARY:Bronco Super Celebration Nevada
-DTSTART:20261015T090000
-DTEND:20261017T170000
-DTSTAMP:20261016T211147Z
-UID:20dbfa3161d6923e9f5839d548352c@bronco-events
-DESCRIPTION:Official Bronco Driver Super Celebration. Source: https://www.
- broncodriver.com/index.php/super-celebrations/ Also listed by: Bronco Driv
- er Other Events\n\nAlso listed by: Bronco Nation
-LOCATION:Carson City\, NV
-URL:https://www.broncodriver.com/index.php/super-celebrations/
+SUMMARY:Super Celebration Nevada 2026
+DTSTART;TZID=America/Los_Angeles:20261015T100000
+DTEND;TZID=America/Los_Angeles:20261017T180000
+DTSTAMP:20261017T043012Z
+UID:442bbff8037d68b404cc7ead2c0aa8@bronco-events
+DESCRIPTION:Bronco Driver Magazine's celebration of Broncos!\n\nBronco Nat
+ ion event:\nhttps://thebronconation.com/events/super-celebration-nevada-20
+ 26-t.23155/\n\nRegistration:\nhttps://www.broncodriver.com/index.php/event
+ s/
+URL:https://thebronconation.com/events/super-celebration-nevada-2026-t.231
+ 55/
 END:VEVENT
 END:VCALENDAR
