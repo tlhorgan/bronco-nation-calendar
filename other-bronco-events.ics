@@ -4,17 +4,4 @@ PRODID:-//Bronco Events Calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Other Bronco Events
-BEGIN:VEVENT
-SUMMARY:Super Celebration Nevada 2026
-DTSTART;TZID=America/Los_Angeles:20261015T100000
-DTEND;TZID=America/Los_Angeles:20261017T180000
-DTSTAMP:20261017T203818Z
-UID:442bbff8037d68b404cc7ead2c0aa8@bronco-events
-DESCRIPTION:Bronco Driver Magazine's celebration of Broncos!\n\nBronco Nat
- ion event:\nhttps://thebronconation.com/events/super-celebration-nevada-20
- 26-t.23155/\n\nRegistration:\nhttps://www.broncodriver.com/index.php/event
- s/
-URL:https://thebronconation.com/events/super-celebration-nevada-2026-t.231
- 55/
-END:VEVENT
 END:VCALENDAR
