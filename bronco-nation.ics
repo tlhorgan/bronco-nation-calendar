@@ -8,7 +8,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco Beach Bash
 DTSTART;TZID=America/New_York:20261030T070000
 DTEND;TZID=America/New_York:20261101T140000
-DTSTAMP:20261026T045029Z
+DTSTAMP:20261026T130734Z
 UID:173b2b4b1f27c3afd412a1a39eab63@bronco-events
 DESCRIPTION:PRESENTED BY PITTSVILLE FORD IN OCEAN CITY\, MD FEATURING BEAC
  H CRUISES\, SAND COURSE\, VENDOR AREAS\, SHOW & SHINE. ALL BRONCO MAKES/MO
@@ -21,7 +21,7 @@ BEGIN:VEVENT
 SUMMARY:Death Valley All Bronco Adventure
 DTSTART;TZID=America/Los_Angeles:20261031T170000
 DTEND;TZID=America/Los_Angeles:20261103T130000
-DTSTAMP:20261026T045029Z
+DTSTAMP:20261026T130734Z
 UID:c3eb485aec67794a2b88c1987004d0@bronco-events
 DESCRIPTION:Join us in Beatty\, NV to kick off a Death Valley adventure wi
  th 2 1/2 trail days\, ending at Panamint Springs Resort.\n\nBronco Nation 
@@ -34,7 +34,7 @@ BEGIN:VEVENT
 SUMMARY:Death Valley Intermediate Adventure
 DTSTART;TZID=America/New_York:20261104T120000
 DTEND;TZID=America/New_York:20261108T080000
-DTSTAMP:20261026T045029Z
+DTSTAMP:20261026T130734Z
 UID:0c1df2f5b0a5e13b0bb9ba08dec8f9@bronco-events
 DESCRIPTION:Come join us on an Intermediate Difficulty Adventure of Death 
  Valley National Park.\n\nBronco Nation event:\nhttps://thebronconation.com
@@ -46,7 +46,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco the Ozarks 2027
 DTSTART;TZID=America/Chicago:20270318T080000
 DTEND;TZID=America/Chicago:20270320T180000
-DTSTAMP:20261026T045029Z
+DTSTAMP:20261026T130734Z
 UID:5bcae383cc4e6ff43b9e7c3698532b@bronco-events
 DESCRIPTION:Bronco the Ozarks returns in 2027 with three days of community
  \, scenic drives\, and moderate off-road trail rides.\n\nBronco Nation eve
