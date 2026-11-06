@@ -8,7 +8,7 @@ BEGIN:VEVENT
 SUMMARY:Death Valley Intermediate Adventure
 DTSTART;TZID=America/New_York:20261104T120000
 DTEND;TZID=America/New_York:20261108T080000
-DTSTAMP:20261105T195840Z
+DTSTAMP:20261106T065053Z
 UID:0c1df2f5b0a5e13b0bb9ba08dec8f9@bronco-events
 DESCRIPTION:Come join us on an Intermediate Difficulty Adventure of Death 
  Valley National Park.\n\nBronco Nation event:\nhttps://thebronconation.com
@@ -20,7 +20,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco Wild Fund and Hardy Family Ford @ HOPE FEST
 DTSTART;TZID=America/New_York:20261107T130000
 DTEND;TZID=America/New_York:20261107T180000
-DTSTAMP:20261105T195840Z
+DTSTAMP:20261106T065053Z
 UID:97ab165aa4e8d1ab2a3b918954e148@bronco-events
 DESCRIPTION:Hardy Family Ford presents the annual HOPE FEST. You do not wa
  nt to miss this all day event of fun for everyone to kick off the Christma
@@ -37,7 +37,7 @@ SUMMARY:Bronco Wild Fund + Mooresville Ford at Lake Norman State Park's Fi
  rst Annual Community Day
 DTSTART;TZID=America/New_York:20261115T140000
 DTEND;TZID=America/New_York:20261115T170000
-DTSTAMP:20261105T195840Z
+DTSTAMP:20261106T065053Z
 UID:020656b20471fa1432feb5f53964d5@bronco-events
 DESCRIPTION:Lake Norman State Park is excited to host a community day in h
  onor of A250 - Conservation Stations\, games\, activities\, crafts\, and f
@@ -54,7 +54,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco the Ozarks 2027
 DTSTART;TZID=America/Chicago:20270318T080000
 DTEND;TZID=America/Chicago:20270320T180000
-DTSTAMP:20261105T195840Z
+DTSTAMP:20261106T065053Z
 UID:5bcae383cc4e6ff43b9e7c3698532b@bronco-events
 DESCRIPTION:Bronco the Ozarks returns in 2027 with three days of community
  \, scenic drives\, and moderate off-road trail rides.\n\nBronco Nation eve
