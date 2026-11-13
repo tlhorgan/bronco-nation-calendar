@@ -9,7 +9,7 @@ SUMMARY:Bronco Wild Fund + Mooresville Ford at Lake Norman State Park's Fi
  rst Annual Community Day
 DTSTART;TZID=America/New_York:20261115T140000
 DTEND;TZID=America/New_York:20261115T170000
-DTSTAMP:20261113T064907Z
+DTSTAMP:20261113T194427Z
 UID:020656b20471fa1432feb5f53964d5@bronco-events
 DESCRIPTION:Lake Norman State Park is excited to host a community day in h
  onor of A250 - Conservation Stations\, games\, activities\, crafts\, and f
@@ -23,10 +23,42 @@ URL:https://thebronconation.com/events/bronco-wild-fund-mooresville-ford-a
  t-lake-norman-state-park-s-first-annual-community-day-t.24577/
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Bronco Wild Fund | Hill Country Conservancy Planting Project
+DTSTART;TZID=America/Chicago:20261120T090000
+DTEND;TZID=America/Chicago:20261120T223000
+DTSTAMP:20261113T194427Z
+UID:fc81fa9ceaae6694a45bbaa93a358c@bronco-events
+DESCRIPTION:Come spend a morning outdoors\, meet fellow Bronco owners & na
+ ture enthusiasts\, and help care for one of Austin's favorite trails!\n\nR
+ egion: South West\n\nBronco Nation event:\nhttps://thebronconation.com/eve
+ nts/bronco-wild-fund-hill-country-conservancy-planting-project-t.24600/\n
+ \nRegistration:\nhttps://www.givepulse.com/event/960855-tree-planting-at-m
+ ile-zero
+LOCATION:2212 William Barton Dr\, Austin\, TX\, USA
+URL:https://thebronconation.com/events/bronco-wild-fund-hill-country-conse
+ rvancy-planting-project-t.24600/
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Bronco Wild Fund Fire Mitigation Project at Spring Mountain Ranch 
+ State Park
+DTSTART;TZID=America/Los_Angeles:20261207T090000
+DTEND;TZID=America/Los_Angeles:20261207T113000
+DTSTAMP:20261113T194427Z
+UID:5b83d2225fbe68a4217a3a7e9e5255@bronco-events
+DESCRIPTION:Come spend a morning outdoors\, meet fellow Bronco owners & na
+ ture enthusiasts\, and help care for one of Las Vegas's favorite parks!\n
+ \nRegion: West\n\nBronco Nation event:\nhttps://thebronconation.com/events
+ /bronco-wild-fund-fire-mitigation-project-at-spring-mountain-ranch-state-p
+ ark-t.24603/
+LOCATION:Spring Mountain Ranch State Park\, Las Vegas\, NV\, USA
+URL:https://thebronconation.com/events/bronco-wild-fund-fire-mitigation-pr
+ oject-at-spring-mountain-ranch-state-park-t.24603/
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Bronco the Ozarks 2027
 DTSTART;TZID=America/Chicago:20270318T080000
 DTEND;TZID=America/Chicago:20270320T180000
-DTSTAMP:20261113T064907Z
+DTSTAMP:20261113T194427Z
 UID:5bcae383cc4e6ff43b9e7c3698532b@bronco-events
 DESCRIPTION:Bronco the Ozarks returns in 2027 with three days of community
  \, scenic drives\, and moderate off-road trail rides.\n\nBronco Nation eve
@@ -37,7 +69,7 @@ BEGIN:VEVENT
 SUMMARY:North Border Bronco Celebration 2027
 DTSTART;TZID=America/Chicago:20270701T120000
 DTEND;TZID=America/Chicago:20270704T130000
-DTSTAMP:20261113T064907Z
+DTSTAMP:20261113T194427Z
 UID:ba68af915e71d91ca4c181f5c1e540@bronco-events
 DESCRIPTION:Celebrate in North Dakota’s second-oldest town! Walhalla\, N
  D\, July 1-4\, 2027: four days of Pembina Gorge adventure\, competition\, 
