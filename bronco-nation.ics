@@ -9,7 +9,7 @@ SUMMARY:Bronco Wild Fund Fire Mitigation Project at Spring Mountain Ranch
  State Park
 DTSTART;TZID=America/Los_Angeles:20261207T090000
 DTEND;TZID=America/Los_Angeles:20261207T113000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:5b83d2225fbe68a4217a3a7e9e5255@bronco-events
 DESCRIPTION:Come spend a morning outdoors\, meet fellow Bronco owners & na
  ture enthusiasts\, and help care for a beautiful Las Vegas park!!\n\nRegio
@@ -24,7 +24,7 @@ BEGIN:VEVENT
 SUMMARY:Michigan Broncos at Michigan International Speedway Nite Lights
 DTSTART;TZID=America/New_York:20261219T173000
 DTEND;TZID=America/New_York:20261219T220000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:46b7cc9b48df710508ba4e958e2fa1@bronco-events
 DESCRIPTION:Nite Lights @ MIS\n\nBronco Nation event:\nhttps://thebroncona
  tion.com/events/michigan-broncos-at-michigan-international-speedway-nite-l
@@ -36,7 +36,7 @@ BEGIN:VEVENT
 SUMMARY:Light up the Night Parade to Children's Hospital
 DTSTART;TZID=America/New_York:20261220T173000
 DTEND;TZID=America/New_York:20261220T220000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:06412db0295ac1324d7a845efc7723@bronco-events
 DESCRIPTION:Michigan Broncos has been invited to join an incredible Christ
  mas tradition in Detroit!\n\nBronco Nation event:\nhttps://thebronconation
@@ -48,7 +48,7 @@ BEGIN:VEVENT
 SUMMARY:Detroit WinterFest 2027
 DTSTART;TZID=America/New_York:20270116T080000
 DTEND;TZID=America/New_York:20270116T210000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:12d8ce674e803f2860a45aa2a4ef73@bronco-events
 DESCRIPTION:Enjoy winter wheeling at Holly Oaks ORV Park!\n\nRegion: Mid-W
  est\n\nBronco Nation event:\nhttps://thebronconation.com/events/detroit-wi
@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:Overland Expo SoCal 2027
 DTSTART;TZID=America/Los_Angeles:20270313T090000
 DTEND;TZID=America/Los_Angeles:20270314T170000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:84253ecc3c2f489fadafc01df7218b@bronco-events
 DESCRIPTION:Overland Expo® is the premier overlanding event series in the
   world.\n\nRegion: Pacific\n\nBronco Nation event:\nhttps://thebronconatio
@@ -74,7 +74,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco the Ozarks 2027
 DTSTART;TZID=America/Chicago:20270318T080000
 DTEND;TZID=America/Chicago:20270320T180000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:5bcae383cc4e6ff43b9e7c3698532b@bronco-events
 DESCRIPTION:Bronco the Ozarks returns in 2027 with three days of community
  \, scenic drives\, and moderate off-road trail rides.\n\nBronco Nation eve
@@ -85,7 +85,7 @@ BEGIN:VEVENT
 SUMMARY:Overland Expo West 2027
 DTSTART;TZID=America/Denver:20270514T090000
 DTEND;TZID=America/Denver:20270516T170000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:42fa5def7f0dd19da0eb4404683a1b@bronco-events
 DESCRIPTION:Overland Expo® is the premier overlanding event series in the
   world.\n\nRegion: South West\n\nBronco Nation event:\nhttps://thebroncona
@@ -98,7 +98,7 @@ BEGIN:VEVENT
 SUMMARY:Carlisle Ford Nationals 2027
 DTSTART;TZID=America/New_York:20270604T070000
 DTEND;TZID=America/New_York:20270606T160000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:6d2ab5c24c0d2b8fe9e9680233e18d@bronco-events
 DESCRIPTION:Come to the largest all-Ford show in the world!\n\nRegion: Nor
  th East\n\nBronco Nation event:\nhttps://thebronconation.com/events/carlis
@@ -112,7 +112,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco Safari 2027
 DTSTART;TZID=America/Denver:20270616T070000
 DTEND;TZID=America/Denver:20270619T200000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:59cab9d8ce7a6e70ab47f56a0d4403@bronco-events
 DESCRIPTION:Join Utah Bronco Club for guided trails\, incredible terrain\,
   and time with the Bronco community.\n\nRegion: South West\n\nBronco Natio
@@ -125,7 +125,7 @@ BEGIN:VEVENT
 SUMMARY:Overland Expo PNW
 DTSTART;TZID=America/Los_Angeles:20270625T090000
 DTEND;TZID=America/Los_Angeles:20270627T170000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:f5efedd174b46ffba012106bbab2ab@bronco-events
 DESCRIPTION:Overland Expo® is the premier overlanding event series in the
   world.\n\nRegion: North West\n\nBronco Nation event:\nhttps://thebroncona
@@ -138,7 +138,7 @@ BEGIN:VEVENT
 SUMMARY:North Border Bronco Celebration 2027
 DTSTART;TZID=America/Chicago:20270701T120000
 DTEND;TZID=America/Chicago:20270704T130000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:ba68af915e71d91ca4c181f5c1e540@bronco-events
 DESCRIPTION:Celebrate in North Dakota’s second-oldest town! Walhalla\, N
  D\, July 1-4\, 2027: four days of Pembina Gorge adventure\, competition\, 
@@ -154,7 +154,7 @@ BEGIN:VEVENT
 SUMMARY:Overland Expo Mountain West 2027
 DTSTART;TZID=America/Denver:20270820T090000
 DTEND;TZID=America/Denver:20270822T170000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:a8065f268a115c78736fc8182a4534@bronco-events
 DESCRIPTION:Overland Expo® is the premier overlanding event series in the
   world.\n\nRegion: West\n\nBronco Nation event:\nhttps://thebronconation.c
@@ -168,7 +168,7 @@ BEGIN:VEVENT
 SUMMARY:Smoky Mountain Bronco Stampede 2027
 DTSTART;TZID=America/New_York:20271022T090000
 DTEND;TZID=America/New_York:20271023T170000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:0b9dbab5fd3518b77cf6afcbcd31b0@bronco-events
 DESCRIPTION:Explore the latest Bronco parts\, accessories\, equipment\, an
  d services from industry-leading manufacturers and specialty vendors.\n\nR
@@ -182,7 +182,7 @@ BEGIN:VEVENT
 SUMMARY:Overland Expo East 2027
 DTSTART;TZID=America/New_York:20271022T090000
 DTEND;TZID=America/New_York:20271024T170000
-DTSTAMP:20261125T214341Z
+DTSTAMP:20261126T082309Z
 UID:1bde49be55880713bf1316fc5fc6d7@bronco-events
 DESCRIPTION:Overland Expo® is the premier overlanding event series in the
   world.\n\nRegion: North East\n\nBronco Nation event:\nhttps://thebroncona
