@@ -8,7 +8,7 @@ BEGIN:VEVENT
 SUMMARY:Super Celebration East 2027
 DTSTART;TZID=America/New_York:20270414T100000
 DTEND;TZID=America/New_York:20270417T180000
-DTSTAMP:20261126T082309Z
+DTSTAMP:20261126T213545Z
 UID:81c1d5ee4f6f38680149685081ce8f@bronco-events
 DESCRIPTION:Bronco Driver Magazine's celebration of Broncos in Tennessee!
  \n\nRegion: South East\n\nBronco Nation event:\nhttps://thebronconation.co
@@ -22,7 +22,7 @@ BEGIN:VEVENT
 SUMMARY:Super Celebration Wisconsin 2027
 DTSTART;TZID=America/Chicago:20270610T100000
 DTEND;TZID=America/Chicago:20270612T180000
-DTSTAMP:20261126T082309Z
+DTSTAMP:20261126T213545Z
 UID:d46180439f8ffb6fc9a30601e1f3ce@bronco-events
 DESCRIPTION:Bronco Driver Magazine's celebration of Broncos in Wisconsin!
  \n\nRegion: Mid-West\n\nBronco Nation event:\nhttps://thebronconation.com/
@@ -36,7 +36,7 @@ BEGIN:VEVENT
 SUMMARY:Super Celebration West 2027
 DTSTART;TZID=America/Denver:20270908T100000
 DTEND;TZID=America/Denver:20270911T180000
-DTSTAMP:20261126T082309Z
+DTSTAMP:20261126T213545Z
 UID:ae3fb25f665033abb6e26af2b94b4e@bronco-events
 DESCRIPTION:Bronco Driver Magazine's celebration of Broncos in Colorado!\n
  \nRegion: West\n\nBronco Nation event:\nhttps://thebronconation.com/events
@@ -50,7 +50,7 @@ BEGIN:VEVENT
 SUMMARY:Bronco Throwback 2027
 DTSTART;TZID=America/New_York:20270930T100000
 DTEND;TZID=America/New_York:20271002T180000
-DTSTAMP:20261126T082309Z
+DTSTAMP:20261126T213545Z
 UID:5d620fa0bd57dd7eeec45a410a2013@bronco-events
 DESCRIPTION:Bronco Driver Magazine's celebration of 1966-1996 Broncos!\n\n
  Region: South East\n\nBronco Nation event:\nhttps://thebronconation.com/ev
